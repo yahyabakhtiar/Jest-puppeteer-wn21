@@ -7,17 +7,19 @@ const initApp = () => {
 };
 
 const addUser = () => {
-  // Fetches the user input, creates a new HTML element based on it
-  // and appends the element to the DOM
-  const newUserNameInput = document.querySelector('input#name');
-  const newUserAgeInput = document.querySelector('input#age');
+ // Fetches the user input, creates a new HTML element based on it
+ // and appends the element to the DOM
+ const newUserNameInput = document.querySelector('input#name');
+ const newUserAgeInput = document.querySelector('input#age');
 
-  if (
-    !validateInput(newUserNameInput.value, true, false) ||
-    !validateInput(newUserAgeInput.value, false, true)
-  ) {
-    return;
-  }
+ const outputText = checkAndGenerate(
+   newUserNameInput.value,
+   newUserAgeInput.value
+ );
+
+ if (!outputText) {
+   return;
+ }
 
   const userList = document.querySelector('.user-list');
   const outputText = generateText(
